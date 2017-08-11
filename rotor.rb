@@ -1,44 +1,31 @@
 class Rotor
 
-  CONNEXIONS_TABLE =
-    {
-      'a': 'c',
-      'b': 'b',
-      'c': 'a',
-      'd': 'f',
-      'e': 'e',
-      'f': 'd',
+  # initialiser les rotor avec un row
+  def initialize(row)
+    @row = row
+  end
 
-      'g': 'i',
-      'h': 'h',
-      'i': 'g',
-      'j': 'l',
-      'k': 'k',
-      'l': 'j',
+  ALPHABET = ('a'..'c').to_a
 
-      'm': 'o',
-      'n': 'n',
-      'o': 'm',
-      'p': 'r',
-      'q': 'q',
-      'r': 'p',
+  def rotor_combination
+    Hash[ ALPHABET.zip(permutator)]
+  end
 
-      's': 'v',
-      't': 'u',
-      'u': 't',
-      'v': 's',
-      'w': 'z',
-      'x': 'y',
-      'y': 'x',
-      'z': 'w'
-    }
-  # on tape une lettre
-  # STEP1: elle passe dans le table des connexions
-  # STEP2: elle passe successivement dans trois rotors
-  # STEP3: elle passe dans le réflecteur
-  # NB: Après chaque lettre tapée, le premier rotor tourne d'un cran. Quand il est revenu à sa position initiale, le deuxième rotor se met à tourner.
-
-  def rotor_rotation
-
+  def permutator
+    generated_alphabet = []
+    ALPHABET.each do |letter|
+      if (letter.ord + @row) < 123 && (letter.ord + @row) > 96
+        generated_alphabet << (letter.ord + @row).chr
+      else
+        generated_alphabet << (letter.ord + @row - 123 + 97 ).chr
+      end
+    end
+    generated_alphabet
   end
 end
+
+rotor = Rotor.new(2)
+
+p Rotor::ALPHABET
+p rotor.permutator
+p rotor.rotor_combination
