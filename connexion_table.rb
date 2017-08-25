@@ -32,10 +32,4 @@ class ConnexionTable
       'y': 'x',
       'z': 'w'
     }
-  # on tape une lettre
-  # STEP1: elle passe dans le table des connexions
-  # STEP2: elle passe successivement dans trois rotors
-  # STEP3: elle passe dans le réflecteur
-  # NB: Après chaque lettre tapée, le premier rotor tourne d'un cran. Quand il est revenu à sa position initiale, le deuxième rotor se met à tourner.
-
 end

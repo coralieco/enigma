@@ -5,7 +5,7 @@ class Rotor
     @row = row
   end
 
-  ALPHABET = ('a'..'c').to_a
+  ALPHABET = ('a'..'z').to_a
 
   def rotor_combination
     Hash[ ALPHABET.zip(permutator)]
@@ -25,7 +25,7 @@ class Rotor
 end
 
 rotor = Rotor.new(2)
-
-p Rotor::ALPHABET
-p rotor.permutator
-p rotor.rotor_combination
+#
+# p Rotor::ALPHABET
+# p rotor.permutator
+# p rotor.rotor_combination
